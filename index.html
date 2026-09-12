@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Portafolio | Michel Alarcón</title>
+
+    <link rel="shortcut icon" href="./images/milan.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+
+    <meta name="theme-color" content="#960000">
+
+    <meta name="title" content="Portafolio de Michel Alarcón Pedreros">
+    <meta name="description"
+        content="Michel Alarcón — Ingeniero de Sistemas. Portafolio de proyectos en Python, redes, desarrollo de software e inteligencia artificial.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Portafolio de Michel Alarcón Pedreros">
+    <meta property="og:description"
+        content="Portafolio profesional de Michel Alarcón: proyectos, tecnología, Python, redes e inteligencia artificial.">
+    <meta property="og:image" content="./images/estudiar.jpg">
+
+    <style>
+
+        /* =========================
+           HERO PRINCIPAL
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            color: #fff;
+            isolation: isolate;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(15, 15, 15, 0.78),
+                    rgba(60, 0, 0, 0.58)
+                ),
+                url("./images/estudiar.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+
+        /* Efecto suave de luz */
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            filter: blur(80px);
+            top: 15%;
+            right: -150px;
+            z-index: -1;
+        }
+
+
+        /* =========================
+           NAVEGACIÓN
+        ========================= */
+
+        .nav {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 90px;
+        }
+
+        .nav__logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav__title {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #fff;
+            letter-spacing: 0.3px;
+        }
+
+
+        .nav__links {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav__links:hover {
+            color: #ffb3b3;
+        }
+
+
+        /* =========================
+           HERO CONTENIDO
+        ========================= */
+
+        .hero__container {
+            min-height: calc(100vh - 90px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            padding: 80px 20px 120px;
+        }
+
+
+        .hero__container::before {
+            content: "PORTAFOLIO";
+            display: block;
+            margin-bottom: 18px;
+
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+
+            color: #ffb3b3;
+        }
+
+
+        .hero__title {
+            max-width: 900px;
+            margin: 0 auto 20px;
+
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            line-height: 1.05;
+            font-weight: 800;
+
+            color: #fff;
+
+            animation: aparecer 1s ease forwards;
+        }
+
+
+        .hero__title span {
+            color: #ffb000;
+        }
+
+
+        .hero__paragrafo {
+            max-width: 720px;
+            margin: 0 auto 35px;
+
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            line-height: 1.7;
+
+            color: rgba(255, 255, 255, 0.9);
+
+            animation: aparecer 1.2s ease forwards;
+        }
+
+
+        /* =========================
+           BOTONES
+        ========================= */
+
+        .hero__buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+
+            animation: aparecer 1.4s ease forwards;
+        }
+
+
+        .hero__buttons .cta {
+            margin: 0;
+        }
+
+
+        .cta--secondary {
+            background: transparent !important;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            color: #fff !important;
+        }
+
+
+        .cta--secondary:hover {
+            background: #fff !important;
+            color: #960000 !important;
+        }
+
+
+        /* =========================
+           INDICADOR DE SCROLL
+        ========================= */
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+
+            animation: flotando 2s ease-in-out infinite;
+        }
+
+
+        .scroll-indicator i {
+            margin-top: 8px;
+            font-size: 1rem;
+        }
+
+
+        /* =========================
+           PROYECTOS
+        ========================= */
+
+        .projects {
+            padding: 100px 0;
+        }
+
+        .projects__intro {
+            max-width: 700px;
+            margin: 0 auto 50px;
+            text-align: center;
+        }
+
+        .projects__intro p {
+            line-height: 1.7;
+            color: #666;
+        }
+
+        .projects__grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 30px;
+        }
+
+
+        .project-card {
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+
+            padding: 32px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+
+            background: #fff;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+
+        .project-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.10);
+
+            border-color: rgba(150, 0, 0, 0.2);
+        }
+
+
+        .project-card__icon {
+            font-size: 2.2rem;
+            color: #960000;
+        }
+
+
+        .project-card__title {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+
+        .project-card__desc {
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+
+        .project-card__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+
+        .project-card__tag {
+            font-size: 0.75rem;
+
+            background: rgba(150, 0, 0, 0.08);
+            color: #960000;
+
+            padding: 5px 12px;
+            border-radius: 999px;
+        }
+
+
+        .project-card__link {
+            margin-top: 8px;
+
+            font-weight: 600;
+            color: #960000;
+
+            text-decoration: none;
+
+            transition: transform 0.2s ease;
+        }
+
+
+        .project-card__link:hover {
+            transform: translateX(5px);
+        }
+
+
+        .project-card--soon {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            border-style: dashed;
+            color: #888;
+
+            background: #fafafa;
+        }
+
+
+        /* =========================
+           ANIMACIONES
+        ========================= */
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        @keyframes flotando {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(8px);
+            }
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            .nav__title {
+                font-size: 0.95rem;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .hero__container {
+                padding-top: 50px;
+                padding-bottom: 100px;
+            }
+
+            .hero__title {
+                font-size: clamp(2.4rem, 12vw, 4rem);
+            }
+
+            .hero__paragrafo {
+                font-size: 1rem;
+            }
+
+            .hero__buttons {
+                width: 100%;
+            }
+
+            .hero__buttons .cta {
+                width: 100%;
+                max-width: 260px;
+            }
+
+            .projects {
+                padding: 70px 0;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero">
+
+        <nav class="nav container">
+
+            <div class="nav__logo">
+
+                <a href="index.html" class="nav__title-link">
+                    <h2 class="nav__title">
+                        Michel Alarcón
+                    </h2>
+                </a>
+
+            </div>
+
+
+            <ul id="menu-principal" class="nav__link nav__link--menu">
+
+                <!-- Sobre mí lleva al BLOG -->
+
+                <li class="nav__items">
+
+                    <a href="blog.html" class="nav__links">
+                        Sobre mí
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items">
+
+                    <a href="#proyectos" class="nav__links">
+                        Proyectos
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items">
+
+                    <a href="#contacto" class="nav__links">
+                        Contacto
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items nav__items--close">
+
+                    <img
+                        src="images/close.svg"
+                        class="nav__close"
+                        alt="Cerrar menú">
+
+                </li>
+
+            </ul>
+
+
+            <button
+                class="nav__menu"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-principal">
+
+                <img
+                    src="images/menu.svg"
+                    class="nav__img"
+                    alt="">
+
+            </button>
+
+        </nav>
+
+
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <section class="hero__container container">
+
+            <h1 class="hero__title">
+                Hola, soy <span>Michel Alarcón</span>
+                <br>
+                Ingeniero de Sistemas
+            </h1>
+
+
+            <p class="hero__paragrafo">
+
+                Profesional orientado al soporte tecnológico,
+                redes, desarrollo de soluciones y nuevas tecnologías
+                como Python, Machine Learning e Inteligencia Artificial.
+
+            </p>
+
+
+            <div class="hero__buttons">
+
+                <a href="#proyectos" class="cta">
+                    Ver proyectos
+                </a>
+
+
+                <a href="blog.html" class="cta cta--secondary">
+                    Conóceme
+                </a>
+
+            </div>
+
+
+            <div class="scroll-indicator">
+
+                <span>DESCUBRE</span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </div>
+
+        </section>
+
+    </header>
+
+
+
+    <!-- =========================
+         PROYECTOS
+    ========================= -->
+
+    <main>
+
+        <section
+            class="projects container"
+            id="proyectos">
+
+
+            <div class="projects__intro">
+
+                <h2 class="subtitle">
+                    Mis proyectos
+                </h2>
+
+                <p>
+                    Un espacio donde iré compartiendo
+                    los proyectos, ideas y soluciones que
+                    vaya desarrollando durante mi crecimiento
+                    profesional.
+                </p>
+
+            </div>
+
+
+
+            <div class="projects__grid">
+
+
+                <!-- PROYECTO -->
+
+                <article class="project-card">
+
+                    <i
+                        class="fa-solid fa-hand-scissors project-card__icon">
+                    </i>
+
+
+                    <h3 class="project-card__title">
+                        Piedra, Papel o Tijera
+                    </h3>
+
+
+                    <p class="project-card__desc">
+
+                        Aplicación de escritorio hecha en Python
+                        con interfaz gráfica (Tkinter).
+                        Juega contra la máquina, con marcador
+                        y estadísticas guardadas en un archivo JSON.
+
+                    </p>
+
+
+                    <div class="project-card__tags">
+
+                        <span class="project-card__tag">
+                            Python
+                        </span>
+
+                        <span class="project-card__tag">
+                            Tkinter
+                        </span>
+
+                        <span class="project-card__tag">
+                            Git
+                        </span>
+
+                    </div>
+
+
+                    <a
+                        href="https://github.com/michelalarcon2022/piedra-papel-tijera-python"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="project-card__link">
+
+                        Ver código en GitHub →
+
+                    </a>
+
+                </article>
+
+
+
+                <!-- PRÓXIMO PROYECTO -->
+
+                <article
+                    class="project-card project-card--soon">
+
+                    <i
+                        class="fa-solid fa-plus project-card__icon">
+                    </i>
+
+
+                    <h3 class="project-card__title">
+                        Próximo proyecto
+                    </h3>
+
+
+                    <p class="project-card__desc">
+
+                        Aquí se agregará el siguiente proyecto
+                        en el que esté trabajando.
+
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer class="footer" id="contacto">
+
+        <section class="footer__container container">
+
+            <div class="contacto__principal">
+
+                <span class="contacto__etiqueta">
+                    CONTACTO
+                </span>
+
+                <h2 class="contacto__titulo">
+                    ¿Hablamos?
+                </h2>
+
+                <p class="contacto__texto">
+                    Si tienes una idea, un proyecto o una oportunidad
+                    profesional, puedes ponerte en contacto conmigo.
+                </p>
+
+
+                <div class="contacto__acciones">
+
+                    <a
+                        href="mailto:alarcon12@hotmail.es?subject=Oportunidad%20profesional&body=Hola%20Michel%2C%0A%0AMe%20gustar%C3%ADa%20contactarte%20para..."
+                        class="contacto__boton">
+
+                        <i class="fa-solid fa-envelope"></i>
+                        Escribirme
+
+                    </a>
+
+
+                    <button
+                        class="contacto__boton contacto__boton--copy"
+                        id="copyEmail"
+                        data-email="alarcon12@hotmail.es"
+                        type="button">
+
+                        <i class="fa-solid fa-copy"></i>
+                        Copiar correo
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="contacto__links">
+
+                <h3>
+                    Explora
+                </h3>
+
+                <a href="index.html">
+                    Portafolio
+                </a>
+
+                <a href="blog.html">
+                    Sobre mí
+                </a>
+
+                <a href="#proyectos">
+                    Proyectos
+                </a>
+
+            </div>
+
+
+            <div class="contacto__social">
+
+                <h3>
+                    También puedes encontrarme
+                </h3>
+
+                <div class="contacto__social-icons">
+
+                    <a
+                        href="https://github.com/michelalarcon2022"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="GitHub">
+
+                        <i class="fa-brands fa-github"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/andresalarcon01/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Instagram">
+
+                        <i class="fa-brands fa-instagram"></i>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.facebook.com/maikol.alarkon/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Facebook">
+
+                        <i class="fa-brands fa-facebook"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="footer__line"></div>
+
+
+        <section class="footer__copy container">
+
+            <p class="footer__copyright">
+                © 2026 Michel Alarcón · Ingeniero de Sistemas
+            </p>
+
+            <p class="footer__phrase">
+                Construyendo, aprendiendo y creando.
+            </p>
+
+        </section>
+
+    </footer>
+
+
+
+    <!-- =========================
+         BOTÓN VOLVER ARRIBA
+    ========================= -->
+
+    <button
+        class="btn-up hide"
+        id="up"
+        aria-label="Volver arriba">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================= -->
+
+    <script src="./js/menu.js"></script>
+
+</body>
+
+</html>

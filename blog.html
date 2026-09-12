@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sobre mí | Michel Alarcón</title>
+
+    <link rel="shortcut icon" href="./images/milan.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/estilos.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+
+    <meta name="theme-color" content="#960000">
+
+    <meta name="title" content="Sobre mí | Michel Alarcón Pedreros">
+    <meta name="description"
+        content="Michel Alarcón — Ingeniero de Sistemas. Conoce mi historia, educación, intereses, habilidades y pasatiempos.">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sobre mí | Michel Alarcón Pedreros">
+    <meta property="og:description"
+        content="Conoce mi historia, educación, intereses, habilidades y pasatiempos.">
+    <meta property="og:image" content="./images/estudiar.jpg">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sobre mí | Michel Alarcón Pedreros">
+    <meta name="twitter:description"
+        content="Conoce mi historia, educación, intereses, habilidades y pasatiempos.">
+    <meta name="twitter:image" content="./images/estudiar.jpg">
+
+
+    <style>
+
+        /* =========================
+           HERO DEL BLOG
+        ========================= */
+
+        .hero {
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            color: #fff;
+            isolation: isolate;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(15, 15, 15, 0.78),
+                    rgba(60, 0, 0, 0.58)
+                ),
+                url("./images/estudiar.jpg");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero__container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px 80px;
+        }
+
+        .hero__container::before {
+            content: "SOBRE MÍ";
+            display: block;
+            margin-bottom: 18px;
+
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+
+            color: #ffb3b3;
+        }
+
+        .hero__title {
+            max-width: 900px;
+            margin: 0 auto 20px;
+
+            font-size: clamp(2.4rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 800;
+
+            color: #fff;
+
+            animation: aparecer 1s ease forwards;
+        }
+
+        .hero__title span {
+            color: #ffb000;
+        }
+
+        .hero__paragraph {
+            max-width: 720px;
+            margin: 0 auto 35px;
+
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            line-height: 1.7;
+
+            color: rgba(255, 255, 255, 0.9);
+
+            animation: aparecer 1.2s ease forwards;
+        }
+
+        .hero .cta {
+            animation: aparecer 1.4s ease forwards;
+        }
+
+
+        /* =========================
+           BIOGRAFÍA
+        ========================= */
+
+        .about {
+            text-align: center;
+        }
+
+        .about__photo {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(150, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about__photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about__name {
+            font-size: 1.6rem;
+            margin: 0 0 6px;
+            color: #222;
+        }
+
+        .about__role {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #960000;
+            margin: 0 0 30px;
+        }
+
+        .about__paragraph {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+
+        /* =========================
+           TIMELINE (about__main)
+        ========================= */
+
+        .about__main {
+            padding-top: 40px;
+            display: grid;
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            gap: 1.5em;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .about__icons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+            padding: 28px 20px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            background: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about__icons:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .about__icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .about__title {
+            font-size: 1.05rem;
+            color: #960000;
+            margin: 0;
+        }
+
+        .about__text {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: #555;
+            margin: 0;
+            text-align: center;
+        }
+
+
+        /* =========================
+           PRECIOS / PASATIEMPOS
+        ========================= */
+
+        .price {
+            text-align: center;
+        }
+
+        .price__table {
+            padding-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2em;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .price__element {
+            background-color: #f5f5f5;
+            text-align: center;
+            border-radius: 16px;
+            width: 320px;
+            padding: 36px 28px;
+
+            display: flex;
+            flex-direction: column;
+
+            --color-plan: #000;
+            --color-price: #960000;
+            --color-items: #333;
+        }
+
+        .price__element--best {
+            width: 340px;
+            padding: 44px 32px;
+            background-color: #960000;
+            --color-plan: #fff;
+            --color-price: #ffb000;
+            --color-items: #fff;
+        }
+
+        .price__name {
+            color: var(--color-plan);
+            margin: 0 0 15px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .price__price {
+            font-size: 1.6rem;
+            color: var(--color-price);
+            margin: 0 0 25px;
+            line-height: 1.3;
+        }
+
+        .price__items {
+            display: grid;
+            gap: 0.8em;
+            font-weight: 300;
+            font-size: 0.95rem;
+            color: var(--color-items);
+            flex-grow: 1;
+            margin-bottom: 25px;
+        }
+
+        .price__features {
+            margin: 0;
+        }
+
+
+        /* =========================
+           TESTIMONY / CARRUSEL
+        ========================= */
+
+        .testimony {
+            background-color: #f0f0f7;
+        }
+
+        .testimony__container {
+            display: grid;
+            grid-template-columns: 50px 1fr 50px;
+            gap: 1em;
+            align-items: center;
+        }
+
+        .testimony__body {
+            display: grid;
+            grid-template-columns: 1fr max-content;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2em;
+            grid-column: 2/3;
+            grid-row: 1/2;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .testimony__body--show {
+            pointer-events: unset;
+            opacity: 1;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .testimony__img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: 50% 30%;
+        }
+
+        .testimony__texts {
+            max-width: 700px;
+        }
+
+        .testimony__course {
+            background-color: rgba(150, 0, 0, 0.1);
+            color: #960000;
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 6px;
+        }
+
+        .testimony__arrow {
+            width: 90%;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           QUESTIONS / FAQ
+        ========================= */
+
+        .questions {
+            text-align: center;
+        }
+
+        .questions__container {
+            display: grid;
+            gap: 2em;
+            padding-top: 50px;
+            padding-bottom: 100px;
+        }
+
+        .questions__padding {
+            padding: 0;
+            transition: padding .3s;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .questions__padding--add {
+            padding-bottom: 30px;
+        }
+
+        .questions__answer {
+            padding: 0 30px;
+            overflow: hidden;
+        }
+
+        .questions__title {
+            display: flex;
+            font-size: 1.1rem;
+            padding: 25px 0;
+            cursor: pointer;
+            color: #5c0000;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .questions__arrow {
+            border-radius: 50%;
+            background-color: #960000;
+            width: 28px;
+            height: 28px;
+            min-width: 28px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform .3s;
+        }
+
+        .questions__arrow--rotate {
+            transform: rotate(180deg);
+        }
+
+        .questions__img {
+            width: 14px;
+            display: block;
+        }
+
+        .questions__show {
+            text-align: left;
+            height: 0;
+            transition: height .3s;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        .questions__offer {
+            margin-top: 40px;
+        }
+
+        .questions__copy {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+            color: #555;
+        }
+
+
+        /* =========================
+           ANIMACIONES
+        ========================= */
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(25px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .hero {
+                background-attachment: scroll;
+                min-height: 70vh;
+            }
+
+            .testimony__container {
+                grid-template-columns: 30px 1fr 30px;
+            }
+
+            .testimony__body {
+                grid-template-columns: 1fr;
+                grid-template-rows: max-content max-content;
+                gap: 2em;
+                justify-items: center;
+            }
+
+            .testimony__img {
+                width: 180px;
+                height: 180px;
+            }
+
+            .price__table {
+                gap: 1.5em;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .questions__title {
+                font-size: 1rem;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HERO / NAV
+    ========================= -->
+
+    <header class="hero">
+
+        <nav class="nav container">
+
+            <div class="nav__logo">
+
+                <a href="index.html" class="nav__title-link">
+                    <h2 class="nav__title">Michel Alarcón</h2>
+                </a>
+
+            </div>
+
+
+            <ul id="menu-principal" class="nav__link nav__link--menu">
+
+                <li class="nav__items">
+
+                    <a href="index.html" class="nav__links">
+                        Portafolio
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items">
+
+                    <a href="#vida" class="nav__links">
+                        Sobre mí
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items">
+
+                    <a href="#edu" class="nav__links">
+                        Educación
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items">
+
+                    <a href="#inter" class="nav__links">
+                        Intereses
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items">
+
+                    <a href="#aprender" class="nav__links">
+                        Contacto
+                    </a>
+
+                </li>
+
+
+                <li class="nav__items nav__items--close">
+
+                    <img
+                        src="images/close.svg"
+                        class="nav__close"
+                        alt="Cerrar menú">
+
+                </li>
+
+            </ul>
+
+
+            <button
+                class="nav__menu"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-principal">
+
+                <img
+                    src="images/menu.svg"
+                    class="nav__img"
+                    alt="">
+
+            </button>
+
+        </nav>
+
+
+
+        <!-- HERO CONTENIDO -->
+
+        <section class="hero__container container">
+
+            <h1 class="hero__title">
+                Michel Alarcón <span>Ingeniero de Sistemas</span>
+            </h1>
+
+
+            <p class="hero__paragraph">
+
+                Profesional orientado al soporte tecnológico,
+                redes, desarrollo de soluciones y nuevas tecnologías
+                como Python, Machine Learning e Inteligencia Artificial.
+                Me gusta mucho el diseño.
+
+            </p>
+
+
+            <a href="#edu" class="cta">
+                Comencemos →
+            </a>
+
+        </section>
+
+    </header>
+
+
+
+    <!-- =========================
+         BIOGRAFÍA
+    ========================= -->
+
+    <main>
+
+        <section class="container about" id="vida">
+
+            <div class="about__photo">
+
+                <img src="images/foto.png" alt="Michel Alarcón">
+
+            </div>
+
+
+            <h2 class="about__name">
+                Michel Andrés Alarcón Pedreros
+            </h2>
+
+            <p class="about__role">
+                Ingeniero de Sistemas
+            </p>
+
+
+            <h2 class="subtitle">
+                ¿Qué hay sobre el camino de Michel Andrés?
+            </h2>
+
+
+            <p class="about__paragraph">
+
+                Normalmente me presento como Michael o "Maicol",
+                pero ok, continuemos… Al salir del colegio técnico
+                superior de Neiva, me gradué en construcciones civiles,
+                haciendo trazos muy buenos. Pero la vida me ha puesto
+                retos aún mejores, entre ellos intentar programar y
+                conocer muchas otras áreas dentro de lo que tiene que
+                ver con sistemas.
+
+            </p>
+
+
+            <div class="about__main">
+
+                <article class="about__icons">
+
+                    <img
+                        src="./images/construccion.svg"
+                        class="about__icon"
+                        alt="Construcción">
+
+                    <h3 class="about__title">
+                        T.E. a los 15 años
+                    </h3>
+
+                    <p class="about__text">
+                        Soñaba con diseñar edificios, casas o puentes,
+                        ser un gran ingeniero o arquitecto. Llegué a
+                        hacer un proyecto de un Gym, lastimosamente se
+                        quedó en bosquejo y exposiciones de momento.
+                    </p>
+
+                </article>
+
+
+                <article class="about__icons">
+
+                    <img
+                        src="./images/estudiar.svg"
+                        class="about__icon"
+                        alt="Estudiar">
+
+                    <h3 class="about__title">
+                        T.E. a los 20 años
+                    </h3>
+
+                    <p class="about__text">
+                        Ya siendo más consciente de todo y afrontando
+                        la realidad personal, encontré una oportunidad
+                        inmensa de ingresar al SENA, donde me formé como
+                        Tecnólogo en Mantenimiento de Equipos de Cómputo
+                        y Networking.
+                    </p>
+
+                </article>
+
+
+                <article class="about__icons">
+
+                    <img
+                        src="./images/java.svg"
+                        class="about__icon"
+                        alt="Programación">
+
+                    <h3 class="about__title">
+                        T.E. a los 25 años
+                    </h3>
+
+                    <p class="about__text">
+                        Actualmente estudio Ingeniería en Sistemas en
+                        la Universidad CORHUILA de Neiva. Pienso subir
+                        de nivel estudiando programación, diseño o
+                        haciendo prácticas en Machine Learning e I.A.
+                        Vamos a ver qué nos prepara el destino.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             KNOWLEDGE
+        ========================= -->
+
+        <section class="knowledge">
+
+            <div class="knowledge__container container">
+
+                <div class="knowledge__texts">
+
+                    <h2 class="subtitle">
+                        Esta página está basada en información de internet,
+                        pero escrita línea por línea
+                    </h2>
+
+                    <p class="knowledge__paragraph">
+                        Esta página es construida bajo el perfil de aprendizaje.
+                    </p>
+
+                    <a
+                        href="https://www.acmilan.com/en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="cta">
+
+                        Página del mejor equipo del mundo
+
+                    </a>
+
+                </div>
+
+
+                <figure class="knowledge__picture">
+
+                    <img
+                        src="./images/sansiromilan.png"
+                        class="knowledge__img"
+                        alt="Sansiro Milan">
+
+                </figure>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PASATIEMPOS
+        ========================= -->
+
+        <section class="price container" id="pasatiempo">
+
+            <h2 class="subtitle">
+                Pasatiempos y actividades
+            </h2>
+
+
+            <div class="price__table">
+
+                <div class="price__element">
+
+                    <p class="price__name">
+                        Jugar videojuegos
+                    </p>
+
+                    <h3 class="price__price">
+                        ¿Alguna actividad física?
+                    </h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Andar en cicla, ciclomontañismo</p>
+                        <p class="price__features">Practicar microfútbol</p>
+                        <p class="price__features">Trotar, ejercicios al aire libre</p>
+                    </div>
+
+                </div>
+
+
+                <div class="price__element price__element--best">
+
+                    <p class="price__name">
+                        ¿Qué estoy intentando aprender ahora?
+                    </p>
+
+                    <h3 class="price__price">
+                        Lenguajes y frameworks
+                    </h3>
+
+                    <div class="price__items">
+                        <p class="price__features">CSS</p>
+                        <p class="price__features">HTML5</p>
+                        <p class="price__features">Angular</p>
+                    </div>
+
+                </div>
+
+
+                <div class="price__element">
+
+                    <p class="price__name">
+                        Me gusta
+                    </p>
+
+                    <h3 class="price__price">
+                        Las motocicletas y los animales
+                    </h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Aprender algo nuevo</p>
+                        <p class="price__features">Sacar a mi sobrino de 4 patas</p>
+                        <p class="price__features">La fotografía y los ángulos</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             TESTIMONY / CARRUSEL
+        ========================= -->
+
+        <section class="testimony">
+
+            <div class="testimony__container container">
+
+                <img
+                    src="./images/flechaizquierda.svg"
+                    class="testimony__arrow"
+                    id="before"
+                    alt="Anterior">
+
+
+                <section class="testimony__body testimony__body--show" data-id="1">
+
+                    <div class="testimony__texts">
+
+                        <h2 class="subtitle">
+                            Estudiaba &amp; trabajaba
+                            <span class="testimony__course">Cosas de Michel</span>
+                        </h2>
+
+                        <p class="testimony__review">
+                            Estudié mi bachillerato en un colegio público
+                            de Neiva, un técnico en construcciones civiles.
+                            Trabajaba en un oficio muy conocido en Colombia
+                            como "la rusa" o auxiliar de construcción.
+                        </p>
+
+                    </div>
+
+                    <figure class="testimony__picture">
+                        <img src="./images/estudiar.jpg" class="testimony__img" alt="">
+                    </figure>
+
+                </section>
+
+
+                <section class="testimony__body" data-id="2">
+
+                    <div class="testimony__texts">
+
+                        <h2 class="subtitle">
+                            Estudiaba &amp; trabajaba
+                            <span class="testimony__course">Cosas de Michel</span>
+                        </h2>
+
+                        <p class="testimony__review">
+                            Ingresé al SENA a estudiar Mantenimiento de
+                            Equipos de Cómputo y Networking en el año 2017B.
+                            Me certifiqué con varias competencias.
+                        </p>
+
+                    </div>
+
+                    <figure class="testimony__picture">
+                        <img src="./images/hardware.jpg" class="testimony__img" alt="">
+                    </figure>
+
+                </section>
+
+
+                <section class="testimony__body" data-id="3" id="inter">
+
+                    <div class="testimony__texts">
+
+                        <h2 class="subtitle">
+                            Estudia &amp; trabaja
+                            <span class="testimony__course">Cosas de Michel</span>
+                        </h2>
+
+                        <p class="testimony__review">
+                            Aparte del estudio tengo mis pasatiempos, entre
+                            ellos la consola PlayStation; pero antes de
+                            ella había tenido la consola Xbox negra y el
+                            conocido Atari y Tetris acá en Colombia.
+                        </p>
+
+                    </div>
+
+                    <figure class="testimony__picture">
+                        <img src="./images/videojuego.jpg" class="testimony__img" alt="">
+                    </figure>
+
+                </section>
+
+
+                <section class="testimony__body" data-id="4">
+
+                    <div class="testimony__texts">
+
+                        <h2 class="subtitle">
+                            Estudia &amp; trabaja
+                            <span class="testimony__course">Cosas de Michel</span>
+                        </h2>
+
+                        <p class="testimony__review">
+                            Son muchos los factores que me inclinan por
+                            estudiar Ingeniería en Sistemas, trabajando
+                            para empresas en el área de soporte TIC.
+                        </p>
+
+                    </div>
+
+                    <figure class="testimony__picture">
+                        <img src="./images/redeslin.jpg" class="testimony__img" alt="">
+                    </figure>
+
+                </section>
+
+
+                <img
+                    src="./images/flechaderecha.svg"
+                    class="testimony__arrow"
+                    id="next"
+                    alt="Siguiente">
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             QUESTIONS / FAQ
+        ========================= -->
+
+        <section class="questions container">
+
+            <h2 class="subtitle">
+                Algunas preguntas y curiosidades…
+            </h2>
+
+            <p class="questions__paragraph">
+                Este espacio está para informar acerca de algunas
+                preguntas que tengan sobre mi perfil estudiantil
+                o laboral.
+            </p>
+
+
+            <section class="questions__container">
+
+                <article class="questions__padding">
+
+                    <div class="questions__answer">
+
+                        <h3 class="questions__title">
+                            ¿Hace cuánto comenzó esto de programar?
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img" alt="">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">
+                            Llevo 4 años viendo diferentes lenguajes de
+                            programación y motores de bases de datos.
+                            De acuerdo a lo anterior, aspiro a encontrar
+                            algo referente a lo que he aprendido o conozco
+                            a grandes rasgos. Actualmente me dedico y laboro
+                            en el área de soporte TIC.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="questions__padding">
+
+                    <div class="questions__answer">
+
+                        <h3 class="questions__title">
+                            ¿En qué campos se ve enfocado en los próximos 5 años?
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img" alt="">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">
+                            Claramente reitero que me gustaría entrar en
+                            un equipo de trabajo en el área de programación,
+                            sea Front o Backend. Esta página es parte de mi
+                            portafolio laboral de programador.
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <article class="questions__padding">
+
+                    <div class="questions__answer">
+
+                        <h3 class="questions__title">
+                            ¿Qué tiene replanteado a corto y largo plazo?
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img" alt="">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">
+                            Poder encontrar una oportunidad laboral en esta área.
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <section class="questions__offer">
+
+                <h2 class="subtitle">
+                    Esta ha sido mi primera página
+                </h2>
+
+                <p class="questions__copy">
+                    Quiero saber de alguna forma sus comentarios y demás.
+                    Estaré muy atento para recibir críticas constructivas
+                    acerca de esta página.
+                </p>
+
+                <a href="index.html" class="cta">
+                    Volver al portafolio
+                </a>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer class="footer" id="aprender">
+
+        <section class="footer__container container">
+
+            <div class="contacto__principal">
+
+                <span class="contacto__etiqueta">
+                    CONTACTO
+                </span>
+
+                <h2 class="contacto__titulo">
+                    ¿Hablamos?
+                </h2>
+
+                <p class="contacto__texto">
+                    Si tienes una idea, un proyecto o una oportunidad
+                    profesional, puedes ponerte en contacto conmigo.
+                </p>
+
+                <div class="contacto__acciones">
+
+                    <a
+                        href="mailto:alarcon12@hotmail.es?subject=Oportunidad%20profesional&body=Hola%20Michel%2C%0A%0AMe%20gustar%C3%ADa%20contactarte%20para..."
+                        class="contacto__boton">
+
+                        <i class="fa-solid fa-envelope"></i>
+                        Escribirme
+
+                    </a>
+
+                    <button
+                        class="contacto__boton contacto__boton--copy"
+                        id="copyEmail"
+                        data-email="alarcon12@hotmail.es"
+                        type="button">
+
+                        <i class="fa-solid fa-copy"></i>
+                        Copiar correo
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="contacto__links">
+
+                <h3>Explora</h3>
+
+                <a href="index.html">Portafolio</a>
+                <a href="blog.html">Sobre mí</a>
+                <a href="index.html#proyectos">Proyectos</a>
+
+            </div>
+
+
+            <div class="contacto__social">
+
+                <h3>También puedes encontrarme</h3>
+
+                <div class="contacto__social-icons">
+
+                    <a href="https://github.com/michelalarcon2022"
+                       target="_blank" rel="noopener noreferrer"
+                       aria-label="GitHub">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/andresalarcon01/"
+                       target="_blank" rel="noopener noreferrer"
+                       aria-label="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/maikol.alarkon/"
+                       target="_blank" rel="noopener noreferrer"
+                       aria-label="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="footer__line"></div>
+
+
+        <section class="footer__copy container">
+
+            <p class="footer__copyright">
+                © 2026 Michel Alarcón · Ingeniero de Sistemas
+            </p>
+
+            <p class="footer__phrase">
+                Construyendo, aprendiendo y creando.
+            </p>
+
+        </section>
+
+    </footer>
+
+
+
+    <!-- =========================
+         BOTÓN VOLVER ARRIBA
+    ========================= -->
+
+    <button
+        class="btn-up hide"
+        id="up"
+        aria-label="Volver arriba">
+
+        <i class="fas fa-arrow-up"></i>
+
+    </button>
+
+
+
+    <!-- =========================
+         PARTÍCULAS DE FONDO
+    ========================= -->
+
+    <div id="particles-js"></div>
+
+
+
+    <!-- =========================
+         SCRIPTS
+    ========================= -->
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/particles-config.js"></script>
+
+    <script src="./js/menu.js"></script>
+    <script src="./js/slider.js"></script>
+    <script src="./js/questions.js"></script>
+
+</body>
+
+</html>
