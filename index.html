@@ -30,7 +30,7 @@
     <meta property="og:title" content="Portafolio de Michel Alarcón Pedreros">
     <meta property="og:description"
         content="Portafolio profesional de Michel Alarcón: proyectos, tecnología, Python, redes e inteligencia artificial.">
-    <meta property="og:image" content="./images/estudiar.jpg">
+    <meta property="og:image" content="./images/hero.webp">
 
     <style>
 
@@ -39,27 +39,25 @@
         ========================= */
 
         .hero {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
-            color: #fff;
-            isolation: isolate;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    color: #fff;
+    isolation: isolate;
 
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(15, 15, 15, 0.78),
-                    rgba(60, 0, 0, 0.58)
-                ),
-                url("./images/estudiar.jpg");
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15, 15, 15, 0.78),
+            rgba(60, 0, 0, 0.58)
+        ),
+        url("./images/hero.webp");
 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
-
-        /* Efecto suave de luz */
 
         .hero::after {
             content: "";
@@ -100,7 +98,6 @@
             color: #fff;
             letter-spacing: 0.3px;
         }
-
 
         .nav__links {
             position: relative;
@@ -329,20 +326,53 @@
         }
 
 
-        .project-card__link {
-            margin-top: 8px;
+        /* =========================
+           ACCIONES DE LA TARJETA
+        ========================= */
 
+        .project-card__actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-top: 8px;
+        }
+
+
+        .project-card__link {
             font-weight: 600;
             color: #960000;
 
             text-decoration: none;
 
             transition: transform 0.2s ease;
+
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 0;
         }
 
 
         .project-card__link:hover {
             transform: translateX(5px);
+        }
+
+
+        .project-card__link--demo {
+            background: #960000;
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 999px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+
+        .project-card__link--demo:hover {
+            background: #b00000;
+            transform: translateY(-2px);
         }
 
 
@@ -355,6 +385,81 @@
             color: #888;
 
             background: #fafafa;
+        }
+
+
+        /* =========================
+           MODAL DE CARGA DEL JUEGO
+        ========================= */
+
+        .loading-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 15, 15, 0.85);
+            backdrop-filter: blur(6px);
+            z-index: 9999;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+
+        .loading-modal--show {
+            opacity: 1;
+            pointer-events: unset;
+        }
+
+
+        .loading-modal__content {
+            text-align: center;
+            color: #fff;
+            max-width: 420px;
+            padding: 40px 30px;
+            background: rgba(30, 10, 10, 0.95);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 176, 0, 0.2);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+            animation: modalAppear 0.4s ease;
+        }
+
+
+        .loading-modal__spinner {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 25px;
+            border: 4px solid rgba(255, 176, 0, 0.2);
+            border-top-color: #ffb000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+
+        .loading-modal__title {
+            font-size: 1.3rem;
+            margin: 0 0 15px;
+            color: #fff;
+            font-weight: 600;
+        }
+
+
+        .loading-modal__text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0 0 15px;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+
+        .loading-modal__subtext {
+            font-size: 0.85rem;
+            margin: 0;
+            color: #ffb000;
+            font-style: italic;
         }
 
 
@@ -388,6 +493,23 @@
                 transform: translateX(-50%) translateY(8px);
             }
 
+        }
+
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+
+        @keyframes modalAppear {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
 
@@ -431,6 +553,19 @@
                 padding: 70px 0;
             }
 
+            .loading-modal__content {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+
+            .loading-modal__title {
+                font-size: 1.1rem;
+            }
+
+            .loading-modal__text {
+                font-size: 0.9rem;
+            }
+
         }
 
     </style>
@@ -446,76 +581,78 @@
 
     <header class="hero">
 
-        <nav class="nav container">
+       <nav class="nav container">
 
-            <div class="nav__logo">
+    <a href="index.html" class="nav__brand">
 
-                <a href="index.html" class="nav__title-link">
-                    <h2 class="nav__title">
-                        Michel Alarcón
-                    </h2>
-                </a>
+        <span class="nav__avatar">
+            MA
+        </span>
 
-            </div>
+        <span class="nav__brand-text">
+            <span class="nav__brand-name">Michel Alarcón</span>
+            <span class="nav__brand-role">Ingeniero de Sistemas</span>
+        </span>
 
-
-            <ul id="menu-principal" class="nav__link nav__link--menu">
-
-                <!-- Sobre mí lleva al BLOG -->
-
-                <li class="nav__items">
-
-                    <a href="blog.html" class="nav__links">
-                        Sobre mí
-                    </a>
-
-                </li>
+    </a>
 
 
-                <li class="nav__items">
+    <ul id="menu-principal" class="nav__link nav__link--menu">
 
-                    <a href="#proyectos" class="nav__links">
-                        Proyectos
-                    </a>
+        <li class="nav__items">
 
-                </li>
+            <a href="blog.html" class="nav__links">
+                Sobre mí
+            </a>
 
-
-                <li class="nav__items">
-
-                    <a href="#contacto" class="nav__links">
-                        Contacto
-                    </a>
-
-                </li>
+        </li>
 
 
-                <li class="nav__items nav__items--close">
+        <li class="nav__items">
 
-                    <img
-                        src="images/close.svg"
-                        class="nav__close"
-                        alt="Cerrar menú">
+            <a href="#proyectos" class="nav__links">
+                Proyectos
+            </a>
 
-                </li>
-
-            </ul>
+        </li>
 
 
-            <button
-                class="nav__menu"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="menu-principal">
+        <li class="nav__items nav__items--cta">
 
-                <img
-                    src="images/menu.svg"
-                    class="nav__img"
-                    alt="">
+            <a href="#contacto" class="nav__links nav__links--cta">
+                <i class="fa-regular fa-envelope"></i>
+                Contacto
+            </a>
 
-            </button>
+        </li>
 
-        </nav>
+
+        <li class="nav__items nav__items--close">
+
+            <img
+                src="images/close.svg"
+                class="nav__close"
+                alt="Cerrar menú">
+
+        </li>
+
+    </ul>
+
+
+    <button
+        class="nav__menu"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="menu-principal">
+
+        <img
+            src="images/menu.svg"
+            class="nav__img"
+            alt="">
+
+    </button>
+
+</nav>
 
 
 
@@ -524,7 +661,7 @@
         <section class="hero__container container">
 
             <h1 class="hero__title">
-                Hola, soy <span>Michel Alarcón</span>
+                <span>Michel Alarcón</span>
                 <br>
                 Ingeniero de Sistemas
             </h1>
@@ -534,7 +671,6 @@
 
                 Profesional orientado al soporte tecnológico,
                 redes, desarrollo de soluciones y nuevas tecnologías
-                como Python, Machine Learning e Inteligencia Artificial.
 
             </p>
 
@@ -598,7 +734,9 @@
             <div class="projects__grid">
 
 
-                <!-- PROYECTO -->
+                <!-- =========================
+                     PROYECTO: PIEDRA PAPEL TIJERA
+                ========================= -->
 
                 <article class="project-card">
 
@@ -614,10 +752,10 @@
 
                     <p class="project-card__desc">
 
-                        Aplicación de escritorio hecha en Python
-                        con interfaz gráfica (Tkinter).
-                        Juega contra la máquina, con marcador
-                        y estadísticas guardadas en un archivo JSON.
+                        Aplicación web hecha en Python (Flask) con
+                        interfaz gráfica interactiva. Juega contra
+                        la máquina, con marcador y estadísticas
+                        guardadas en un archivo JSON.
 
                     </p>
 
@@ -629,7 +767,7 @@
                         </span>
 
                         <span class="project-card__tag">
-                            Tkinter
+                            Flask
                         </span>
 
                         <span class="project-card__tag">
@@ -639,21 +777,39 @@
                     </div>
 
 
-                    <a
-                        href="https://github.com/michelalarcon2022/piedra-papel-tijera-python"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="project-card__link">
+                    <div class="project-card__actions">
 
-                        Ver código en GitHub →
+                        <a
+                            href="https://github.com/michelalarcon2022/piedra-papel-tijera-python"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-card__link">
 
-                    </a>
+                            Ver código →
+
+                        </a>
+
+
+                        <button
+                            class="project-card__link project-card__link--demo"
+                            id="btnJugar"
+                            data-url="https://piedra-papel-tijera-web-5xyo.onrender.com"
+                            type="button">
+
+                            <i class="fa-solid fa-play"></i>
+                            Jugar online
+
+                        </button>
+
+                    </div>
 
                 </article>
 
 
 
-                <!-- PRÓXIMO PROYECTO -->
+                <!-- =========================
+                     PRÓXIMO PROYECTO
+                ========================= -->
 
                 <article
                     class="project-card project-card--soon">
@@ -837,6 +993,35 @@
         <i class="fas fa-arrow-up"></i>
 
     </button>
+
+
+
+    <!-- =========================
+         MODAL DE CARGA DEL JUEGO
+    ========================= -->
+
+    <div class="loading-modal" id="loadingModal" aria-hidden="true">
+
+        <div class="loading-modal__content">
+
+            <div class="loading-modal__spinner"></div>
+
+            <h3 class="loading-modal__title">
+                Abriendo Piedra, Papel o Tijera
+            </h3>
+
+            <p class="loading-modal__text">
+                El juego se está preparando.
+                La primera carga puede tardar unos segundos. ⏳
+            </p>
+
+            <p class="loading-modal__subtext">
+                ¡Gracias por la paciencia!
+            </p>
+
+        </div>
+
+    </div>
 
 
 

@@ -191,7 +191,6 @@
 
             try {
 
-                // Método moderno (requiere https o localhost)
                 await navigator.clipboard.writeText(email);
 
                 copyEmailBtn.classList.add('copiado');
@@ -206,7 +205,6 @@
 
             } catch (err) {
 
-                // Fallback para navegadores antiguos o file://
                 const textarea = document.createElement('textarea');
 
                 textarea.value = email;
@@ -240,6 +238,61 @@
                 }
 
                 document.body.removeChild(textarea);
+
+            }
+
+        });
+
+    }
+
+
+    // =========================================
+    // MODAL DE CARGA DEL JUEGO
+    // =========================================
+
+    const btnJugar = document.getElementById('btnJugar');
+    const loadingModal = document.getElementById('loadingModal');
+
+    if (btnJugar && loadingModal) {
+
+        btnJugar.addEventListener('click', () => {
+
+            const url = btnJugar.dataset.url;
+
+            // 1. Muestra el modal
+            loadingModal.classList.add('loading-modal--show');
+            loadingModal.setAttribute('aria-hidden', 'false');
+
+            // 2. Bloquea el scroll del body mientras el modal está abierto
+            document.body.style.overflow = 'hidden';
+
+            // 3. Espera 2.5 segundos y abre el juego en nueva pestaña
+            setTimeout(() => {
+
+                window.open(url, '_blank', 'noopener,noreferrer');
+
+                // 4. Cierra el modal medio segundo después de abrir
+                setTimeout(() => {
+
+                    loadingModal.classList.remove('loading-modal--show');
+                    loadingModal.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+
+                }, 500);
+
+            }, 2500);
+
+        });
+
+
+        // 5. Cerrar el modal si el usuario hace clic fuera del contenido
+        loadingModal.addEventListener('click', (event) => {
+
+            if (event.target === loadingModal) {
+
+                loadingModal.classList.remove('loading-modal--show');
+                loadingModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
 
             }
 
