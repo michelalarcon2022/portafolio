@@ -30,14 +30,14 @@
     <meta property="og:title" content="Sobre mí | Michel Alarcón Pedreros">
     <meta property="og:description"
         content="Conoce mi historia, educación, intereses, habilidades y pasatiempos.">
-    <meta property="og:image" content="./images/estudiar.jpg">
+    <meta property="og:image" content="./images/hero.webp">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sobre mí | Michel Alarcón Pedreros">
     <meta name="twitter:description"
         content="Conoce mi historia, educación, intereses, habilidades y pasatiempos.">
-    <meta name="twitter:image" content="./images/estudiar.jpg">
+    <meta name="twitter:image" content="./images/hero.webp">
 
 
     <style>
@@ -64,9 +64,10 @@
                 url("./images/hero.webp");
 
             background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-position: center 40%;
+            background-repeat: no-repeat;
         }
+
 
         .hero__container {
             flex: 1;
@@ -75,52 +76,71 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 60px 20px 80px;
+            padding: 60px 20px 100px;
         }
 
-        .hero__container::before {
-            content: "SOBRE MÍ";
-            display: block;
-            margin-bottom: 18px;
 
-            font-size: 0.85rem;
+        /* Etiqueta "SOBRE MÍ" */
+
+        .hero__tag {
+            display: inline-block;
+            margin-bottom: 22px;
+
+            font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 5px;
 
             color: #ffb3b3;
+
+            padding: 6px 16px;
+            border: 1px solid rgba(255, 179, 179, 0.3);
+            border-radius: 999px;
+
+            opacity: 0;
+            animation: aparecer 0.8s ease 0.1s forwards;
         }
+
 
         .hero__title {
             max-width: 900px;
-            margin: 0 auto 20px;
+            margin: 0 auto 18px;
 
-            font-size: clamp(2.4rem, 6vw, 4.5rem);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
             line-height: 1.1;
             font-weight: 800;
 
             color: #fff;
 
-            animation: aparecer 1s ease forwards;
+            letter-spacing: -0.5px;
+
+            opacity: 0;
+            animation: aparecer 1s ease 0.3s forwards;
         }
+
 
         .hero__title span {
             color: #ffb000;
+            text-shadow: 0 4px 30px rgba(255, 176, 0, 0.35);
         }
+
 
         .hero__paragraph {
-            max-width: 720px;
-            margin: 0 auto 35px;
+            max-width: 620px;
+            margin: 0 auto 30px;
 
-            font-size: clamp(1rem, 2vw, 1.15rem);
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
             line-height: 1.7;
 
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.8);
 
-            animation: aparecer 1.2s ease forwards;
+            opacity: 0;
+            animation: aparecer 1s ease 0.6s forwards;
         }
 
+
         .hero .cta {
-            animation: aparecer 1.4s ease forwards;
+            opacity: 0;
+            animation: aparecer 1s ease 0.9s forwards;
         }
 
 
@@ -171,7 +191,7 @@
 
 
         /* =========================
-           TIMELINE (about__main)
+           TIMELINE
         ========================= */
 
         .about__main {
@@ -222,7 +242,7 @@
 
 
         /* =========================
-           PRECIOS / PASATIEMPOS
+           PASATIEMPOS
         ========================= */
 
         .price {
@@ -436,23 +456,12 @@
 
 
         /* =========================
-           ANIMACIONES
-        ========================= */
-
-        @keyframes aparecer {
-            from { opacity: 0; transform: translateY(25px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-
-        /* =========================
-           RESPONSIVE
+           RESPONSIVE BLOG
         ========================= */
 
         @media (max-width: 800px) {
 
             .hero {
-                background-attachment: scroll;
                 min-height: 70vh;
             }
 
@@ -478,10 +487,11 @@
 
         }
 
+
         @media (max-width: 600px) {
 
             .hero__title {
-                font-size: 2rem;
+                font-size: 1.7rem;
             }
 
             .questions__title {
@@ -505,13 +515,18 @@
 
         <nav class="nav container">
 
-            <div class="nav__logo">
+            <a href="index.html" class="nav__brand">
 
-                <a href="index.html" class="nav__title-link">
-                    <h2 class="nav__title">Michel Alarcón</h2>
-                </a>
+                <span class="nav__avatar">
+                    MA
+                </span>
 
-            </div>
+                <span class="nav__brand-text">
+                    <span class="nav__brand-name">Michel Alarcón</span>
+                    <span class="nav__brand-role">Ingeniero de Sistemas</span>
+                </span>
+
+            </a>
 
 
             <ul id="menu-principal" class="nav__link nav__link--menu">
@@ -552,9 +567,10 @@
                 </li>
 
 
-                <li class="nav__items">
+                <li class="nav__items nav__items--cta">
 
-                    <a href="#aprender" class="nav__links">
+                    <a href="#aprender" class="nav__links nav__links--cta">
+                        <i class="fa-regular fa-envelope"></i>
                         Contacto
                     </a>
 
@@ -592,26 +608,38 @@
 
         <!-- HERO CONTENIDO -->
 
-        <section class="hero__container container">
+                <section class="hero__container container">
+
+            <span class="hero__tag">
+                SOBRE MÍ
+            </span>
 
             <h1 class="hero__title">
                 Michel Alarcón <span>Ingeniero de Sistemas</span>
             </h1>
 
-
             <p class="hero__paragraph">
-
                 Profesional orientado al soporte tecnológico,
                 redes, desarrollo de soluciones y nuevas tecnologías.
             </p>
 
+            <div class="hero__buttons">
 
-            <a href="#edu" class="cta">
-                Comencemos →
-            </a>
+                <a href="#vida" class="cta">
+                    Conóceme →
+                </a>
+
+                <a href="./cv/MicheLAndresAlarconPedreros_CV.pdf.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="cta cta--secondary">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Ver CV
+                </a>
+
+            </div>
 
         </section>
-
     </header>
 
 
@@ -626,24 +654,21 @@
 
             <div class="about__photo">
 
-                <img src="images/foto.png" alt="Michel Alarcón">
+                <img src="images/fondo blanco.png" alt="Michel Alarcón">
 
             </div>
-
 
             <h2 class="about__name">
                 Michel Andrés Alarcón Pedreros
             </h2>
 
             <p class="about__role">
-                Ingeniero de Sistemas
+                Ingeniero de Sistemas · Recién graduado
             </p>
-
 
             <h2 class="subtitle">
                 ¿Qué hay sobre el camino de Michel Andrés?
             </h2>
-
 
             <p class="about__paragraph">
 
@@ -786,7 +811,6 @@
             <h2 class="subtitle">
                 Pasatiempos y actividades
             </h2>
-
 
             <div class="price__table">
 
@@ -1155,24 +1179,41 @@
 
                 <h3>También puedes encontrarme</h3>
 
-                <div class="contacto__social-icons">
+                                <div class="contacto__social-icons">
+
+                    <a href="https://www.linkedin.com/in/michelandresalarconpedreros/"
+                       target="_blank" rel="noopener noreferrer"
+                       aria-label="LinkedIn">
+
+                        <i class="fa-brands fa-linkedin-in"></i>
+
+                    </a>
+
 
                     <a href="https://github.com/michelalarcon2022"
                        target="_blank" rel="noopener noreferrer"
                        aria-label="GitHub">
+
                         <i class="fa-brands fa-github"></i>
+
                     </a>
+
 
                     <a href="https://www.instagram.com/andresalarcon01/"
                        target="_blank" rel="noopener noreferrer"
                        aria-label="Instagram">
+
                         <i class="fa-brands fa-instagram"></i>
+
                     </a>
+
 
                     <a href="https://www.facebook.com/maikol.alarkon/"
                        target="_blank" rel="noopener noreferrer"
                        aria-label="Facebook">
+
                         <i class="fa-brands fa-facebook"></i>
+
                     </a>
 
                 </div>
